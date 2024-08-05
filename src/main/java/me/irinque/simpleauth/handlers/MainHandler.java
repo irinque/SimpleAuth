@@ -91,7 +91,11 @@ public class MainHandler implements Listener
         String uuid = event.getPlayer().getUniqueId().toString();
         event.setCancelled(CheckStatus(uuid));
     }
-
+    @EventHandler(ignoreCancelled = true)
+    public void onMessage(AsyncPlayerChatEvent event) {
+        String uuid = event.getPlayer().getUniqueId().toString();
+        event.setCancelled(CheckStatus(uuid));
+    }
     public boolean CheckStatus(String UUID)
     {
         String is_user = String.valueOf(plugin.get_config_players().get("players-data." + UUID));

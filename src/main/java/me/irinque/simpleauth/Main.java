@@ -40,6 +40,8 @@ public final class Main extends JavaPlugin {
         Bukkit.getScheduler().runTaskAsynchronously(this, new ConfigLoader());
         Bukkit.getScheduler().runTaskAsynchronously(this, new CommandsLoader());
         Bukkit.getScheduler().runTaskAsynchronously(this, new PlayersLoader());
+        int pluginId = 22899;
+        Metrics metrics = new Metrics(this, pluginId);
         getServer().getLogger().info("§a[SimpleAuth] Plugin is ready!");
     }
 

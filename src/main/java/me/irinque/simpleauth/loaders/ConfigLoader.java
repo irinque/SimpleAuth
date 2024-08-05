@@ -14,7 +14,7 @@ public class ConfigLoader implements Runnable
     public void run()
     {
 
-        if (!get_file_config().exists())
+        if (!get_file_config().exists() || (plugin.getConfig().getString("message.NoPermission") == null) || (plugin.getConfig().getString("message.PasswordChanged") == null))
         {
             plugin.getConfig().set("message.Success", "You have successfully logged in!");
             plugin.getConfig().set("message.Login", "You need to log in! - /l");
@@ -28,6 +28,10 @@ public class ConfigLoader implements Runnable
             plugin.getConfig().set("message.SuccessfulReg", "You have successfully registered, have a nice game!");
             plugin.getConfig().set("message.Reload", "Plugin config successfully reloaded.");
             plugin.getConfig().set("message.NoPermission", "You do not have permission to use this command.");
+            plugin.getConfig().set("message.PasswordChanged", "The password has been successfully changed!"); //v1.0.1
+            plugin.getConfig().set("message.ConfirmPassword", "Enter your old password to confirm!");
+            plugin.getConfig().set("message.EmptyPassword", "The password field must not be empty!");
+
             plugin.saveConfig();
         }
 

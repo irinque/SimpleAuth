@@ -14,5 +14,12 @@ commands:
       - l
       - log
     usage: /<command> <password>
+  changepassword:
+    aliases:
+      - changepassword
+      - cp
+    usage: /<command> <old_password> <new_password>
   reload-simpleauth:
+    aliases:
+      - reload-simpleauth
 

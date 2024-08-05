@@ -22,15 +22,22 @@ public class Register implements CommandExecutor
         String IP = player.getAddress().getAddress().toString();
         if (String.valueOf(plugin.get_config_players().get("players-data." + UUID)) == "null")
         {
-            plugin.get_config_players().set("players-data." + UUID + ".ip", IP);
-            plugin.get_config_players().set("players-data." + UUID + ".login-status", "true");
-            plugin.get_config_players().set("players-data." + UUID + ".password", args[0]);
-            try {
-                plugin.get_config_players().save(plugin.get_file_players());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if (args.length > 0)
+            {
+                plugin.get_config_players().set("players-data." + UUID + ".ip", IP);
+                plugin.get_config_players().set("players-data." + UUID + ".login-status", "true");
+                plugin.get_config_players().set("players-data." + UUID + ".password", args[0]);
+                try {
+                    plugin.get_config_players().save(plugin.get_file_players());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                player.sendMessage(ChatColor.GREEN + GetMessage.getMsg("SuccessfulReg"));
             }
-            player.sendMessage(ChatColor.GREEN + GetMessage.getMsg("SuccessfulReg"));
+            else
+            {
+                player.sendMessage(ChatColor.RED + GetMessage.getMsg("EmptyPassword"));
+            }
         }
         else
         {

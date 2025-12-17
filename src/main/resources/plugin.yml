@@ -4,3 +4,7 @@ main: me.irinque.simpleauth.SimpleAuth
 api-version: '1.19'
 authors: [ irinque ]
 website: https://github.com/irinque
+commands:
+  register:
+    description: Register command
+    usage: /<command> <password>

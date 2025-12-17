@@ -1,17 +1,30 @@
 package me.irinque.simpleauth;
 
+import me.irinque.simpleauth.commands.Register;
+import me.irinque.simpleauth.loaders.PlayersConfigLoader;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SimpleAuth extends JavaPlugin {
+    public static SimpleAuth instance;
+    public static SimpleAuth getInstance() {return instance;}
+    private PlayersConfigLoader playersConfigLoader;
+
+    public PlayersConfigLoader getPlayersConfigLoader() {
+        return playersConfigLoader;
+    }
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        if (instance == null) {instance = this;}
+        saveDefaultConfig();
+        playersConfigLoader = new PlayersConfigLoader();
+        playersConfigLoader.initPlayers();
 
+        getServer().getPluginCommand("register").setExecutor(new Register());
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        if (instance != null) {instance = this;}
     }
 }

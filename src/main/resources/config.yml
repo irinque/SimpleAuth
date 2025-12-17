@@ -1,3 +1,5 @@
 message:
-  WarningRegisterRequired: "Register Required"
-  SuccessfullyRegistered: "Successfully Registered"
+  WarningRegisterRequired: "§cYou must register! - /r\n/register <password>"
+  SuccessfullyRegistered: "§aYou have successfully registered, have a nice game!"
+  WarningLoginRequired: "§eYou need to log in! - /l\n/login <password>"
+  SuccessfullyLoggedIn: "§aYou have successfully logged in, have a nice game!"

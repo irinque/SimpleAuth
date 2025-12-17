@@ -2,6 +2,7 @@ package me.irinque.simpleauth;
 
 import me.irinque.simpleauth.commands.Login;
 import me.irinque.simpleauth.commands.Register;
+import me.irinque.simpleauth.handlers.OtherEvents;
 import me.irinque.simpleauth.handlers.PlayerJoin;
 import me.irinque.simpleauth.loaders.PlayersConfigLoader;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,7 @@ public final class SimpleAuth extends JavaPlugin {
         getServer().getPluginCommand("register").setExecutor(new Register());
         getServer().getPluginCommand("login").setExecutor(new Login());
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new OtherEvents(), this);
     }
 
     @Override

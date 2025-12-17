@@ -8,8 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.io.IOException;
-
 public class Register implements CommandExecutor {
     static SimpleAuth simpleAuth = SimpleAuth.getInstance();
     PlayersConfigLoader playersConfigLoader = simpleAuth.getPlayersConfigLoader();

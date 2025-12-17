@@ -1,5 +1,6 @@
 package me.irinque.simpleauth;
 
+import me.irinque.simpleauth.commands.Login;
 import me.irinque.simpleauth.commands.Register;
 import me.irinque.simpleauth.handlers.PlayerJoin;
 import me.irinque.simpleauth.loaders.PlayersConfigLoader;
@@ -22,6 +23,7 @@ public final class SimpleAuth extends JavaPlugin {
         playersConfigLoader.initPlayers();
 
         getServer().getPluginCommand("register").setExecutor(new Register());
+        getServer().getPluginCommand("login").setExecutor(new Login());
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
     }
 

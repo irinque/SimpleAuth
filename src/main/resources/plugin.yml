@@ -7,4 +7,5 @@ website: https://github.com/irinque
 commands:
   register:
     description: Register command
-    usage: /<command> <password>
+  login:
+      description: Login command

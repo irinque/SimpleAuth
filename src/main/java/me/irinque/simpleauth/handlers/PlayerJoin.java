@@ -26,6 +26,7 @@ public class PlayerJoin implements Listener {
         else {
             if (!joinedPlayerIp.equals(playersConfigLoader.getPlayersConfig().get("players." + joinedPlayerUniqueId + ".ip"))) {
                 playersConfigLoader.getPlayersConfig().set("players." + joinedPlayerUniqueId + ".access", false);
+                playersConfigLoader.savePlayersConfig();
                 String messageWarningLogin = MessageParser.getMessage("WarningLoginRequired");
                 joinedPlayer.sendMessage(messageWarningLogin);
             }

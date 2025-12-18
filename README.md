@@ -1,12 +1,12 @@
-[![text.png](https://i.postimg.cc/mrNKPKW2/text.png)](https://postimg.cc/xk867xdW)
+**SimpleAuth** - Minecraft plugin that will allow you to protect your players' accounts! Simple configuration, reliable use.
+## Capabilities & Features
+- Easy setup
+- Verification by IP Address
+- Login & Registartion
+- Sessions
 
-## SimpleAuth - Make your server safer
-**SimpleAuth** - minecraft plugin that will allow you to protect your players' accounts!
+## Commands
+```/login```, ```/register```, ```/simpleauth```
 
-## Features:
-- Easy to use and easy to set up;
-- Protection by **IP**;
-- Automatic Sessions;
-
-## Commands:
-```/login```, ```/reg```
+## Permissions
+```simpleauth.reload```

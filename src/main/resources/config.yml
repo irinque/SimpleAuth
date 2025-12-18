@@ -1,0 +1,11 @@
+message:
+  WarningRegisterRequired: "§cYou must register! - /r\n/register <password>"
+  SuccessfullyRegistered: "§aYou have successfully registered, have a nice game!"
+  WarningLoginRequired: "§eYou need to log in! - /l\n/login <password>"
+  SuccessfullyLoggedIn: "§aYou have successfully logged in, have a nice game!"
+  AccessDenied: "§cFailed login attempt!"
+  PasswordIsEmpty: "§eThe password field must not be empty!"
+  PasswordChanged: "§aThe password has been successfully changed!"
+  WarningOldPassword: "§cEnter your old password to confirm!"
+  PermissionError: "§cYou do not have permission to use this."
+  Reload: "§aPlugin config successfully reloaded."

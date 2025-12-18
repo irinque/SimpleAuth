@@ -1,25 +1,28 @@
 name: SimpleAuth
-version: '${project.version}'
-main: me.irinque.simpleauth.Main
-authors: [irinque]
-api-version: '1.20'
+version: '1.0.3'
+main: me.irinque.simpleauth.SimpleAuth
+api-version: '1.19'
+authors: [ irinque ]
+website: https://github.com/irinque
 commands:
   register:
     aliases:
       - r
       - reg
     usage: /<command> <password>
+    description: Register command
   login:
     aliases:
       - l
       - log
     usage: /<command> <password>
+    description: Login command
   changepassword:
     aliases:
-      - changepassword
       - cp
     usage: /<command> <old_password> <new_password>
-  reload-simpleauth:
+    description: Changes password
+  simpleauth:
     aliases:
-      - reload-simpleauth
-
+      - sa
+    description: Admin command

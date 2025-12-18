@@ -1,49 +1,34 @@
 package me.irinque.simpleauth.commands;
 
-import me.irinque.simpleauth.Main;
-import me.irinque.simpleauth.getdata.GetMessage;
-import org.bukkit.ChatColor;
+import me.irinque.simpleauth.SimpleAuth;
+import me.irinque.simpleauth.loaders.PlayersConfigLoader;
+import me.irinque.simpleauth.parsers.MessageParser;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.io.IOException;
-
-public class Register implements CommandExecutor
-{
-    static Main plugin = Main.getInstance();
+public class Register implements CommandExecutor {
+    static SimpleAuth simpleAuth = SimpleAuth.getInstance();
+    PlayersConfigLoader playersConfigLoader = simpleAuth.getPlayersConfigLoader();
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
-    {
-        Player player = (Player)sender;
-        String UUID = player.getUniqueId().toString();
-        String IP = player.getAddress().getAddress().toString();
-        if (String.valueOf(plugin.get_config_players().get("players-data." + UUID)) == "null")
-        {
-            if (args.length > 0)
-            {
-                plugin.get_config_players().set("players-data." + UUID + ".ip", IP);
-                plugin.get_config_players().set("players-data." + UUID + ".login-status", "true");
-                plugin.get_config_players().set("players-data." + UUID + ".password", args[0]);
-                try {
-                    plugin.get_config_players().save(plugin.get_file_players());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                player.sendMessage(ChatColor.GREEN + GetMessage.getMsg("SuccessfulReg"));
-            }
-            else
-            {
-                player.sendMessage(ChatColor.RED + GetMessage.getMsg("EmptyPassword"));
-            }
-        }
-        else
-        {
-            player.sendMessage(ChatColor.DARK_PURPLE + GetMessage.getMsg("AlreadyReg"));
-        }
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+        Player player = (Player) sender;
+        String playerUniqueId = player.getUniqueId().toString();
+        String playerIp = player.getAddress().getAddress().toString();
+        String playerExistance = String.valueOf(playersConfigLoader.getPlayersConfig().get("players." + playerUniqueId));
+
+        if (playerExistance.equals("null")) {
+            if (args.length > 0) {
+                playersConfigLoader.getPlayersConfig().set("players." + playerUniqueId + ".ip", playerIp);
+                playersConfigLoader.getPlayersConfig().set("players." + playerUniqueId + ".password", args[0]);
+                playersConfigLoader.getPlayersConfig().set("players." + playerUniqueId + ".access", true);
+                playersConfigLoader.savePlayersConfig();
+                player.sendMessage(MessageParser.getMessage("SuccessfullyRegistered"));
+            }
+        }
         return true;
     }
 }

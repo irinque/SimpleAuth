@@ -1,5 +1,6 @@
 package me.irinque.simpleauth;
 
+import me.irinque.simpleauth.commands.ChangePassword;
 import me.irinque.simpleauth.commands.Login;
 import me.irinque.simpleauth.commands.Register;
 import me.irinque.simpleauth.handlers.OtherEvents;
@@ -25,6 +26,7 @@ public final class SimpleAuth extends JavaPlugin {
 
         getServer().getPluginCommand("register").setExecutor(new Register());
         getServer().getPluginCommand("login").setExecutor(new Login());
+        getServer().getPluginCommand("changepassword").setExecutor(new ChangePassword());
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new OtherEvents(), this);
     }

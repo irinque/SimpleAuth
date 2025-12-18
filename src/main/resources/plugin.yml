@@ -6,6 +6,19 @@ authors: [ irinque ]
 website: https://github.com/irinque
 commands:
   register:
+    aliases:
+      - r
+      - reg
+    usage: /<command> <password>
     description: Register command
   login:
-      description: Login command
+    aliases:
+      - l
+      - log
+    usage: /<command> <password>
+    description: Login command
+  changepassword:
+    aliases:
+      - cp
+    usage: /<command> <old_password> <new_password>
+    description: Changes password

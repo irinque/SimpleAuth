@@ -5,3 +5,5 @@ message:
   SuccessfullyLoggedIn: "§aYou have successfully logged in, have a nice game!"
   AccessDenied: "§cFailed login attempt!"
   PasswordIsEmpty: "§eThe password field must not be empty!"
+  PasswordChanged: "§aThe password has been successfully changed!"
+  WarningOldPassword: "§cEnter your old password to confirm!"

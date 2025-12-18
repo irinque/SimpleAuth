@@ -22,3 +22,7 @@ commands:
       - cp
     usage: /<command> <old_password> <new_password>
     description: Changes password
+  simpleauth:
+    aliases:
+      - sa
+    description: Admin command

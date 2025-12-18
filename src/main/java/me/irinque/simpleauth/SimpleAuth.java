@@ -27,6 +27,7 @@ public final class SimpleAuth extends JavaPlugin {
         getServer().getPluginCommand("register").setExecutor(new Register());
         getServer().getPluginCommand("login").setExecutor(new Login());
         getServer().getPluginCommand("changepassword").setExecutor(new ChangePassword());
+        getServer().getPluginCommand("simpleauth").setExecutor(new me.irinque.simpleauth.commands.SimpleAuth());
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new OtherEvents(), this);
     }

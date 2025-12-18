@@ -7,3 +7,5 @@ message:
   PasswordIsEmpty: "§eThe password field must not be empty!"
   PasswordChanged: "§aThe password has been successfully changed!"
   WarningOldPassword: "§cEnter your old password to confirm!"
+  PermissionError: "§cYou do not have permission to use this."
+  Reload: "§aPlugin config successfully reloaded."

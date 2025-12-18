@@ -6,6 +6,10 @@ import me.irinque.simpleauth.commands.Register;
 import me.irinque.simpleauth.handlers.OtherEvents;
 import me.irinque.simpleauth.handlers.PlayerJoin;
 import me.irinque.simpleauth.loaders.PlayersConfigLoader;
+import me.irinque.simpleauth.tabcompleters.ChangePasswordTabCompleter;
+import me.irinque.simpleauth.tabcompleters.LoginTabCompleter;
+import me.irinque.simpleauth.tabcompleters.RegisterTabCompleter;
+import me.irinque.simpleauth.tabcompleters.SimpleAuthTabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SimpleAuth extends JavaPlugin {
@@ -28,6 +32,12 @@ public final class SimpleAuth extends JavaPlugin {
         getServer().getPluginCommand("login").setExecutor(new Login());
         getServer().getPluginCommand("changepassword").setExecutor(new ChangePassword());
         getServer().getPluginCommand("simpleauth").setExecutor(new me.irinque.simpleauth.commands.SimpleAuth());
+
+        getServer().getPluginCommand("register").setTabCompleter(new RegisterTabCompleter());
+        getServer().getPluginCommand("login").setTabCompleter(new LoginTabCompleter());
+        getServer().getPluginCommand("changepassword").setTabCompleter(new ChangePasswordTabCompleter());
+        getServer().getPluginCommand("simpleauth").setTabCompleter(new SimpleAuthTabCompleter());
+
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new OtherEvents(), this);
     }
